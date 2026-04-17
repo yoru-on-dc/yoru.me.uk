@@ -10,15 +10,16 @@
 
 <div class="noise"></div>
 
-<div class="center glitch-wrapper">
+<div class="center">
 
   <h1 class="glitch" data-text="yoru">yoru</h1>
 
   <p class="type" id="type"></p>
 
   <div class="links">
-    <a href="/scuffed-snake/">🐍 scuffed snake</a>
     <a href="https://github.com/yourusername" target="_blank">github</a>
+    <a href="#">projects</a>
+    <a href="#">contact</a>
   </div>
 
   <div class="status">
@@ -30,19 +31,34 @@
 </div>
 
 <script>
-const text = "chaotic overcaffeinated mess...";
-let i = 0;
-const speed = 40;
+const text = [
+  "booting yoru.exe...",
+  "loading chaos module...",
+  "injecting caffeine...",
+  "chaotic overcaffeinated mess"
+];
 
-function typeWriter() {
-  if (i < text.length) {
-    document.getElementById("type").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
+let line = 0;
+let char = 0;
+const speed = 40;
+const el = document.getElementById("type");
+
+function type() {
+  if (line < text.length) {
+    if (char < text[line].length) {
+      el.innerHTML += text[line].charAt(char);
+      char++;
+      setTimeout(type, speed);
+    } else {
+      el.innerHTML += "<br>";
+      line++;
+      char = 0;
+      setTimeout(type, 300);
+    }
   }
 }
 
-typeWriter();
+type();
 </script>
 
 </body>
