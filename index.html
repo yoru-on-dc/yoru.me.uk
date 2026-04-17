@@ -3,35 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>yoru's Bio</title>
+  <title>yoru.exe</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="bio">
-  <h1>👾 Welcome to yoru's chaotic corner!</h1>
-  
-  <p class="intro">I'm yoru – A chaotic, overcaffeinated mess. Code is my canvas, coffee is my fuel, and chaos is my creative process.</p>
-  
-  <img src="assets/coffee-chaos.gif" width="300px" alt="Caffeine Chaos" />
-  
-  <p>Here's where the madness happens:</p>
+<div class="noise"></div>
 
-  <a href="/scuffed-snake" class="play-button">Play Scuffed Snake</a>
-  
-  <div class="social-links">
-    <h3>Find me on:</h3>
-    <ul>
-      <li><a href="https://github.com/yoru" target="_blank">GitHub</a></li>
-      <li><a href="https://twitter.com/yoru" target="_blank">Twitter</a></li>
-      <li><a href="https://linkedin.com/in/yoru" target="_blank">LinkedIn</a></li>
-    </ul>
+<div class="center glitch-wrapper">
+
+  <h1 class="glitch" data-text="yoru">yoru</h1>
+
+  <p class="type" id="type"></p>
+
+  <div class="links">
+    <a href="/scuffed-snake/">🐍 scuffed snake</a>
+    <a href="https://github.com/yourusername" target="_blank">github</a>
   </div>
+
+  <div class="status">
+    <p>☕ caffeine: overflow</p>
+    <p>🧠 brain: segmentation fault</p>
+    <p>⚙️ status: unstable</p>
+  </div>
+
 </div>
 
-<footer>
-  <p>Made with <span style="color: #FF4D6D;">♥</span> and caffeine</p>
-</footer>
+<script>
+const text = "chaotic overcaffeinated mess...";
+let i = 0;
+const speed = 40;
+
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("type").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+typeWriter();
+</script>
 
 </body>
 </html>
