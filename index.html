@@ -3,18 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>yoru.exe</title>
+  <title>yoruOS</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="noise"></div>
+<!-- BOOT SCREEN -->
+<div id="boot">
+  <pre id="bootText"></pre>
+</div>
 
-<div class="center">
+<!-- GLITCH LAYER -->
+<div class="glitch-layer"></div>
+<div class="scanlines"></div>
+
+<!-- MAIN SITE -->
+<div id="main" class="hidden">
 
   <h1 class="glitch" data-text="yoru">yoru</h1>
 
-  <p class="type" id="type"></p>
+  <p id="type"></p>
 
   <div class="links">
     <a href="https://github.com/yourusername" target="_blank">github</a>
@@ -23,43 +31,13 @@
   </div>
 
   <div class="status">
-    <p>☕ caffeine: overflow</p>
-    <p>🧠 brain: segmentation fault</p>
-    <p>⚙️ status: unstable</p>
+    <p>☕ caffeine: unstable</p>
+    <p>🧠 brain: fragmented</p>
+    <p>⚙️ system: barely holding</p>
   </div>
 
 </div>
 
-<script>
-const text = [
-  "booting yoru.exe...",
-  "loading chaos module...",
-  "injecting caffeine...",
-  "chaotic overcaffeinated mess"
-];
-
-let line = 0;
-let char = 0;
-const speed = 40;
-const el = document.getElementById("type");
-
-function type() {
-  if (line < text.length) {
-    if (char < text[line].length) {
-      el.innerHTML += text[line].charAt(char);
-      char++;
-      setTimeout(type, speed);
-    } else {
-      el.innerHTML += "<br>";
-      line++;
-      char = 0;
-      setTimeout(type, 300);
-    }
-  }
-}
-
-type();
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
